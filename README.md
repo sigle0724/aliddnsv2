@@ -1,11 +1,10 @@
 For CentOS：
-
 yum install -y wget curl cronie
+
 For Debian 8+：
-
 apt install -y wget curl cron
-For Ubuntu/Debian 7：
 
+For Ubuntu/Debian 7：
 apt-get install -y wget curl cron
 然后下载AliDDNS脚本到你的服务器上：
 
