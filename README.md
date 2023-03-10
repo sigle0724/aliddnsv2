@@ -8,11 +8,28 @@ For Ubuntu/Debian 7：
 apt-get install -y wget curl cron
 然后下载AliDDNS脚本到你的服务器上：
 
-wget -O /usr/sbin/AliDDNS-v2.0.sh https://ilemonrain.com/download/shell/AliDDNSv2.sh
-下载地址请参考上面的 更新记录 & 下载地址 一节！
-为脚本文件加上可执行属性：
+wget -O /usr/sbin/AliDDNS-v2.0.sh https://raw.githubusercontent.com/sigle0724/aliddnsv2/main/AliDDNSv2.sh && chmod +x /usr/sbin/AliDDNS-v2.0.sh && /usr/sbin/AliDDNS-v2.0.sh
 
-chmod +x /usr/sbin/AliDDNS-v2.0.sh
-执行脚本，开始配置：
+计划任务
 
-/usr/sbin/AliDDNS-v2.0.sh
+*/1 * * * * /usr/sbin/AliDDNS-v2.0.sh run >/dev/null 2>&1 &
+
+重启
+
+CentOS:
+
+service crond restart
+
+Ubuntu/Debian：
+
+service cron restart
+
+并将Cron加入开机启动项：
+
+CentOS：
+
+chkconfig crond on
+
+Ubuntu/Debian：
+
+systemctl enable cron
